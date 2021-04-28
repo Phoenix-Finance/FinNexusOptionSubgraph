@@ -1,27 +1,340 @@
 specVersion: 0.0.2
-description: Gravatar for Ethereum
-repository: https://github.com/graphprotocol/example-subgraph
+description: FinNexus option for Ethereum
+repository: https://github.com/FinNexus/FinNexusOptionSubgraph
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: Gravity
+    name: ethFnxOptionPool
     network: mainnet
     source:
-      address: '0x2E645469f354BB4F5c8a05B3b30A929361cf77eC'
-      abi: Gravity
+      address: "0xed54fb841a62a69d4935303706d1dad7dc87b360"
+      abi: ethFnxOptionPool
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Gravatar
+      - BurnOption
+      - CreateOption
+      - DebugEvent
+      - OwnershipTransferred
       abis:
-        - name: Gravity
-          file: ./abis/Gravity.json
+      - name: ethFnxOptionPool
+        file: ./abis/OptionsPool.json
       eventHandlers:
-        - event: NewGravatar(uint256,address,string,string)
-          handler: handleNewGravatar
-        - event: UpdatedGravatar(uint256,address,string,string)
-          handler: handleUpdatedGravatar
-      file: ./src/mapping.ts
+      - event: BurnOption(indexed address,indexed uint256,uint256)
+        handler: handleBurnOption
+      - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
+        handler: handleCreateOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      file: ./src/ethFnxOptionPool.ts
+
+  - kind: ethereum/contract
+    name: ethFraxOptionPool
+    network: mainnet
+    source:
+      address: "0x940c33cF45Ec52aA3e8d9E58af01437131e2FA1e"
+      abi: ethFraxOptionPool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+      - BurnOption
+      - CreateOption
+      - DebugEvent
+      - OwnershipTransferred
+      abis:
+      - name: ethFraxOptionPool
+        file: ./abis/OptionsPool.json
+      eventHandlers:
+      - event: BurnOption(indexed address,indexed uint256,uint256)
+        handler: handleBurnOption
+      - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
+        handler: handleCreateOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      file: ./src/ethFraxOptionPool.ts
+
+  - kind: ethereum/contract
+    name: ethUsdcOptionPool
+    network: mainnet
+    source:
+      address: "0xe12a03aea96dc56fb8007ec54fcfbdd61965d925"
+      abi: ethUsdcOptionPool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+      - BurnOption
+      - CreateOption
+      - DebugEvent
+      - OwnershipTransferred
+      abis:
+      - name: ethUsdcOptionPool
+        file: ./abis/OptionsPool.json
+      eventHandlers:
+      - event: BurnOption(indexed address,indexed uint256,uint256)
+        handler: handleBurnOption
+      - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
+        handler: handleCreateOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      file: ./src/ethUsdcOptionPool.ts
+
+  - kind: ethereum/contract
+    name: bscUsdcOptionPool
+    network: bsc
+    source:
+      address: "0xa3a6bbe13344c61afe6e4e632986227c96e34edd"
+      abi: bscUsdcOptionPool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+      - BurnOption
+      - CreateOption
+      - DebugEvent
+      - OwnershipTransferred
+      abis:
+      - name: bscUsdcOptionPool
+        file: ./abis/OptionsPool.json
+      eventHandlers:
+      - event: BurnOption(indexed address,indexed uint256,uint256)
+        handler: handleBurnOption
+      - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
+        handler: handleCreateOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      file: ./src/bscUsdcOptionPool.ts
+
+  - kind: ethereum/contract
+    name: bscFnxOptionPool
+    network: bsc
+    source:
+      address: "0xa3a6bbe13344c61afe6e4e632986227c96e34edd"
+      abi: bscFnxOptionPool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+      - BurnOption
+      - CreateOption
+      - DebugEvent
+      - OwnershipTransferred
+      abis:
+      - name: bscFnxOptionPool
+        file: ./abis/OptionsPool.json
+      eventHandlers:
+      - event: BurnOption(indexed address,indexed uint256,uint256)
+        handler: handleBurnOption
+      - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
+        handler: handleCreateOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      file: ./src/bscFnxOptionPool.ts
+
+  - kind: ethereum/contract
+      name: ethFnxOptionManager
+      network: mainnet
+      source:
+        address: "0xfdf252995da6d6c54c03fc993e7aa6b593a57b8d"
+        abi: ethFnxOptionManager
+      mapping:
+        kind: ethereum/events
+        apiVersion: 0.0.4
+        language: wasm/assemblyscript
+        entities:
+        - AddCollateral
+        - BuyOption
+        - DebugEvent
+        - ExerciseOption
+        - OwnershipTransferred
+        - RedeemCollateral
+        - SellOption
+        abis:
+        - name: ethFnxOptionManager
+          file: ./abis/OptionManager.json
+        eventHandlers:
+        - event: AddCollateral(indexed address,indexed address,uint256,uint256)
+          handler: handleAddCollateral
+        - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleBuyOption
+        - event: DebugEvent(uint256,uint256,uint256)
+          handler: handleDebugEvent
+        - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleExerciseOption
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RedeemCollateral(indexed address,address,uint256)
+          handler: handleRedeemCollateral
+        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleSellOption
+        file: ./src/ethFnxOptionManager.ts
+
+  - kind: ethereum/contract
+    name: ethFraxOptionManager
+    network: mainnet
+    source:
+      address: "0xa2904fd151c9d9d634dfa8ecd856e6b9517f9785"
+      abi: ethFraxOptionManager
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+      - AddCollateral
+      - BuyOption
+      - DebugEvent
+      - ExerciseOption
+      - OwnershipTransferred
+      - RedeemCollateral
+      - SellOption
+      abis:
+      - name: ethFraxOptionManager
+        file: ./abis/OptionManager.json
+      eventHandlers:
+      - event: AddCollateral(indexed address,indexed address,uint256,uint256)
+        handler: handleAddCollateral
+      - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
+        handler: handleBuyOption
+      - event: DebugEvent(uint256,uint256,uint256)
+        handler: handleDebugEvent
+      - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
+        handler: handleExerciseOption
+      - event: OwnershipTransferred(indexed address,indexed address)
+        handler: handleOwnershipTransferred
+      - event: RedeemCollateral(indexed address,address,uint256)
+        handler: handleRedeemCollateral
+      - event: SellOption(indexed address,indexed uint256,uint256,uint256)
+        handler: handleSellOption
+      file: ./src/ethFraxOptionManager.ts
+
+  - kind: ethereum/contract
+      name: ethUsdcOptionManager
+      network: mainnet
+      source:
+        address: "0x120f18f5b8edcaa3c083f9464c57c11d81a9e549"
+        abi: ethUsdcOptionManager
+      mapping:
+        kind: ethereum/events
+        apiVersion: 0.0.4
+        language: wasm/assemblyscript
+        entities:
+        - AddCollateral
+        - BuyOption
+        - DebugEvent
+        - ExerciseOption
+        - OwnershipTransferred
+        - RedeemCollateral
+        - SellOption
+        abis:
+        - name: ethUsdcOptionManager
+          file: ./abis/OptionManager.json
+        eventHandlers:
+        - event: AddCollateral(indexed address,indexed address,uint256,uint256)
+          handler: handleAddCollateral
+        - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleBuyOption
+        - event: DebugEvent(uint256,uint256,uint256)
+          handler: handleDebugEvent
+        - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleExerciseOption
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RedeemCollateral(indexed address,address,uint256)
+          handler: handleRedeemCollateral
+        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleSellOption
+        file: ./src/ethUsdcOptionManager.ts
+
+  - kind: ethereum/contract
+      name: bscUsdcOptionManager
+      network: mainnet
+      source:
+        address: "0x120f18f5b8edcaa3c083f9464c57c11d81a9e549"
+        abi: bscUsdcOptionManager
+      mapping:
+        kind: ethereum/events
+        apiVersion: 0.0.4
+        language: wasm/assemblyscript
+        entities:
+        - AddCollateral
+        - BuyOption
+        - DebugEvent
+        - ExerciseOption
+        - OwnershipTransferred
+        - RedeemCollateral
+        - SellOption
+        abis:
+        - name: bscUsdcOptionManager
+          file: ./abis/OptionManager.json
+        eventHandlers:
+        - event: AddCollateral(indexed address,indexed address,uint256,uint256)
+          handler: handleAddCollateral
+        - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleBuyOption
+        - event: DebugEvent(uint256,uint256,uint256)
+          handler: handleDebugEvent
+        - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleExerciseOption
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RedeemCollateral(indexed address,address,uint256)
+          handler: handleRedeemCollateral
+        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleSellOption
+        file: ./src/bscUsdcOptionManager.ts
+
+  - kind: ethereum/contract
+      name: bscFnxOptionManager
+      network: mainnet
+      source:
+        address: "0xfdf252995da6d6c54c03fc993e7aa6b593a57b8d"
+        abi: bscFnxOptionManager
+      mapping:
+        kind: ethereum/events
+        apiVersion: 0.0.4
+        language: wasm/assemblyscript
+        entities:
+        - AddCollateral
+        - BuyOption
+        - DebugEvent
+        - ExerciseOption
+        - OwnershipTransferred
+        - RedeemCollateral
+        - SellOption
+        abis:
+        - name: bscFnxOptionManager
+          file: ./abis/OptionManager.json
+        eventHandlers:
+        - event: AddCollateral(indexed address,indexed address,uint256,uint256)
+          handler: handleAddCollateral
+        - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleBuyOption
+        - event: DebugEvent(uint256,uint256,uint256)
+          handler: handleDebugEvent
+        - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleExerciseOption
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RedeemCollateral(indexed address,address,uint256)
+          handler: handleRedeemCollateral
+        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
+          handler: handleSellOption
+        file: ./src/bscFnxOptionManager.ts
