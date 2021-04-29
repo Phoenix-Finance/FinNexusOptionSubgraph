@@ -1,6 +1,25 @@
-type Gravatar @entity {
+type BuyOption @entity {
   id: ID!
   owner: Bytes!
-  displayName: String!
-  imageUrl: String!
+  optType: Int!
+  underlying: Int!
+  optionsPrice: BigInt!
+  settlement: Bytes!
+  createTime: BigInt!
+  expiration: Int!
+  amount: BigInt!
+  settlePrice: BigInt!
+  strikePrice: BigInt!
+  network: String!
 }
+
+type ExerciseOption @entity {
+  id: ID!
+  optionid: Int!
+  exerciseAmount: BigInt!
+  exerciseBack: BigInt!
+  buyPay: BigInt!
+  network: String!
+}
+
+

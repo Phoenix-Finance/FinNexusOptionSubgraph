@@ -16,10 +16,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - BurnOption
-      - CreateOption
-      - DebugEvent
-      - OwnershipTransferred
+      - BuyOption
+      - ExerciseOption
       abis:
       - name: ethFnxOptionPool
         file: ./abis/OptionsPool.json
@@ -46,10 +44,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - BurnOption
-      - CreateOption
-      - DebugEvent
-      - OwnershipTransferred
+      - BuyOption
+      - ExerciseOption
       abis:
       - name: ethFraxOptionPool
         file: ./abis/OptionsPool.json
@@ -76,10 +72,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - BurnOption
-      - CreateOption
-      - DebugEvent
-      - OwnershipTransferred
+      - BuyOption
+      - ExerciseOption
       abis:
       - name: ethUsdcOptionPool
         file: ./abis/OptionsPool.json
@@ -106,10 +100,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - BurnOption
-      - CreateOption
-      - DebugEvent
-      - OwnershipTransferred
+      - BuyOption
+      - ExerciseOption
       abis:
       - name: bscUsdcOptionPool
         file: ./abis/OptionsPool.json
@@ -136,10 +128,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - BurnOption
-      - CreateOption
-      - DebugEvent
-      - OwnershipTransferred
+      - BuyOption
+      - ExerciseOption
       abis:
       - name: bscFnxOptionPool
         file: ./abis/OptionsPool.json
@@ -166,13 +156,8 @@ dataSources:
         apiVersion: 0.0.4
         language: wasm/assemblyscript
         entities:
-        - AddCollateral
         - BuyOption
-        - DebugEvent
         - ExerciseOption
-        - OwnershipTransferred
-        - RedeemCollateral
-        - SellOption
         abis:
         - name: ethFnxOptionManager
           file: ./abis/OptionManager.json
@@ -205,13 +190,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-      - AddCollateral
       - BuyOption
-      - DebugEvent
       - ExerciseOption
-      - OwnershipTransferred
-      - RedeemCollateral
-      - SellOption
       abis:
       - name: ethFraxOptionManager
         file: ./abis/OptionManager.json
@@ -244,13 +224,8 @@ dataSources:
         apiVersion: 0.0.4
         language: wasm/assemblyscript
         entities:
-        - AddCollateral
         - BuyOption
-        - DebugEvent
         - ExerciseOption
-        - OwnershipTransferred
-        - RedeemCollateral
-        - SellOption
         abis:
         - name: ethUsdcOptionManager
           file: ./abis/OptionManager.json
@@ -283,13 +258,8 @@ dataSources:
         apiVersion: 0.0.4
         language: wasm/assemblyscript
         entities:
-        - AddCollateral
         - BuyOption
-        - DebugEvent
         - ExerciseOption
-        - OwnershipTransferred
-        - RedeemCollateral
-        - SellOption
         abis:
         - name: bscUsdcOptionManager
           file: ./abis/OptionManager.json
@@ -323,13 +293,8 @@ dataSources:
         apiVersion: 0.0.4
         language: wasm/assemblyscript
         entities:
-        - AddCollateral
         - BuyOption
-        - DebugEvent
         - ExerciseOption
-        - OwnershipTransferred
-        - RedeemCollateral
-        - SellOption
         abis:
         - name: bscFnxOptionManager
           file: ./abis/OptionManager.json
