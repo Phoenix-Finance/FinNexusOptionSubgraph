@@ -10,6 +10,7 @@ dataSources:
     source:
       address: "0xed54fb841a62a69d4935303706d1dad7dc87b360"
       abi: ethFnxOptionPool
+      startBlock: 11188213
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -39,6 +40,7 @@ dataSources:
     source:
       address: "0x940c33cF45Ec52aA3e8d9E58af01437131e2FA1e"
       abi: ethFraxOptionPool
+      startBlock: 12014963
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -68,6 +70,7 @@ dataSources:
     source:
       address: "0xe12a03aea96dc56fb8007ec54fcfbdd61965d925"
       abi: ethUsdcOptionPool
+      startBlock: 11188148
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -97,6 +100,7 @@ dataSources:
     source:
       address: "0xa3a6bbe13344c61afe6e4e632986227c96e34edd"
       abi: bscUsdcOptionPool
+      startBlock: 6077575
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -124,8 +128,9 @@ dataSources:
     name: bscFnxOptionPool
     network: bsc
     source:
-      address: "0xa3a6bbe13344c61afe6e4e632986227c96e34edd"
+      address: "0x423b6d1cbd87371d6ba0d1909fd8e98fc3fc9862"
       abi: bscFnxOptionPool
+      startBlock: 6077495
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -155,6 +160,7 @@ dataSources:
       source:
         address: "0xfdf252995da6d6c54c03fc993e7aa6b593a57b8d"
         abi: ethFnxOptionManager
+        startBlock: 11188245
       mapping:
         kind: ethereum/events
         apiVersion: 0.0.4
@@ -193,6 +199,7 @@ dataSources:
     source:
       address: "0xa2904fd151c9d9d634dfa8ecd856e6b9517f9785"
       abi: ethFraxOptionManager
+      startBlock: 12015019
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -231,6 +238,7 @@ dataSources:
       source:
         address: "0x120f18f5b8edcaa3c083f9464c57c11d81a9e549"
         abi: ethUsdcOptionManager
+        startBlock: 11188181
       mapping:
         kind: ethereum/events
         apiVersion: 0.0.4
@@ -267,8 +275,9 @@ dataSources:
       name: bscUsdcOptionManager
       network: mainnet
       source:
-        address: "0x120f18f5b8edcaa3c083f9464c57c11d81a9e549"
+        address: "0x162095e4cbbf36ccdd43b4887158de282f8654f2"
         abi: bscUsdcOptionManager
+        startBlock: 6872460
       mapping:
         kind: ethereum/events
         apiVersion: 0.0.4
@@ -284,6 +293,7 @@ dataSources:
         abis:
         - name: bscUsdcOptionManager
           file: ./abis/OptionManager.json
+          startBlock:
         eventHandlers:
         - event: AddCollateral(indexed address,indexed address,uint256,uint256)
           handler: handleAddCollateral
@@ -305,8 +315,9 @@ dataSources:
       name: bscFnxOptionManager
       network: mainnet
       source:
-        address: "0xfdf252995da6d6c54c03fc993e7aa6b593a57b8d"
+        address: "0x14d4a8e6a8a8786d6fe2a1fc95abd810d56c79cb"
         abi: bscFnxOptionManager
+        startBlock: 6077524
       mapping:
         kind: ethereum/events
         apiVersion: 0.0.4
