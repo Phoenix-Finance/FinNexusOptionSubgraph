@@ -26,10 +26,6 @@ dataSources:
         handler: handleBurnOption
       - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
         handler: handleCreateOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
       file: ./src/ethFnxOptionPool.ts
 
   - kind: ethereum/contract
@@ -54,11 +50,7 @@ dataSources:
         handler: handleBurnOption
       - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
         handler: handleCreateOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
-      file: ./src/ethFraxOptionPool.ts
+        file: ./src/ethFraxOptionPool.ts
 
   - kind: ethereum/contract
     name: ethUsdcOptionPool
@@ -82,10 +74,6 @@ dataSources:
         handler: handleBurnOption
       - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
         handler: handleCreateOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
       file: ./src/ethUsdcOptionPool.ts
 
   - kind: ethereum/contract
@@ -110,10 +98,6 @@ dataSources:
         handler: handleBurnOption
       - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
         handler: handleCreateOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
       file: ./src/bscUsdcOptionPool.ts
 
   - kind: ethereum/contract
@@ -138,10 +122,6 @@ dataSources:
         handler: handleBurnOption
       - event: CreateOption(indexed address,indexed uint256,uint8,uint32,uint256,uint256,uint256)
         handler: handleCreateOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
       file: ./src/bscFnxOptionPool.ts
 
   - kind: ethereum/contract
@@ -166,16 +146,10 @@ dataSources:
           handler: handleAddCollateral
         - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
           handler: handleBuyOption
-        - event: DebugEvent(uint256,uint256,uint256)
-          handler: handleDebugEvent
         - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
           handler: handleExerciseOption
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: RedeemCollateral(indexed address,address,uint256)
           handler: handleRedeemCollateral
-        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
-          handler: handleSellOption
         file: ./src/ethFnxOptionManager.ts
 
   - kind: ethereum/contract
@@ -200,16 +174,10 @@ dataSources:
         handler: handleAddCollateral
       - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
         handler: handleBuyOption
-      - event: DebugEvent(uint256,uint256,uint256)
-        handler: handleDebugEvent
       - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
         handler: handleExerciseOption
-      - event: OwnershipTransferred(indexed address,indexed address)
-        handler: handleOwnershipTransferred
       - event: RedeemCollateral(indexed address,address,uint256)
         handler: handleRedeemCollateral
-      - event: SellOption(indexed address,indexed uint256,uint256,uint256)
-        handler: handleSellOption
       file: ./src/ethFraxOptionManager.ts
 
   - kind: ethereum/contract
@@ -234,16 +202,10 @@ dataSources:
           handler: handleAddCollateral
         - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
           handler: handleBuyOption
-        - event: DebugEvent(uint256,uint256,uint256)
-          handler: handleDebugEvent
         - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
           handler: handleExerciseOption
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: RedeemCollateral(indexed address,address,uint256)
           handler: handleRedeemCollateral
-        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
-          handler: handleSellOption
         file: ./src/ethUsdcOptionManager.ts
 
   - kind: ethereum/contract
@@ -269,16 +231,10 @@ dataSources:
           handler: handleAddCollateral
         - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
           handler: handleBuyOption
-        - event: DebugEvent(uint256,uint256,uint256)
-          handler: handleDebugEvent
         - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
           handler: handleExerciseOption
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: RedeemCollateral(indexed address,address,uint256)
           handler: handleRedeemCollateral
-        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
-          handler: handleSellOption
         file: ./src/bscUsdcOptionManager.ts
 
   - kind: ethereum/contract
@@ -303,14 +259,8 @@ dataSources:
           handler: handleAddCollateral
         - event: BuyOption(indexed address,indexed address,uint256,uint256,uint256)
           handler: handleBuyOption
-        - event: DebugEvent(uint256,uint256,uint256)
-          handler: handleDebugEvent
         - event: ExerciseOption(indexed address,indexed uint256,uint256,uint256)
           handler: handleExerciseOption
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: RedeemCollateral(indexed address,address,uint256)
           handler: handleRedeemCollateral
-        - event: SellOption(indexed address,indexed uint256,uint256,uint256)
-          handler: handleSellOption
         file: ./src/bscFnxOptionManager.ts
